@@ -1,84 +1,5 @@
 #include <iostream>
 using namespace std;
-
-class contato{
-	private:
-	    string email;
-	    string nome;
-	    string telefone;
-    
-   public:
-		contato(string email,string nome,string telefone,string dtnasc)
-		{
-			this->email = email;
-			this->nome = nome;
-			this->telefone = telefone;
-			this->dtnasc = dtnasc;
-		}
-	 
-	    contato()
-	    {
-			this->email = "";
-			this->nome = "";
-			this->telefone = "";
-			this->dtnasc="";
-		}
-		
-		void setEmail(string email)
-		{
-			this->email = email;
-		}
-		
-		void setNome(string nome)
-		{
-			this->nome = nome;
-		}
-
-		void setTelefone(string telefone)
-		{
-			this->telefone = telefone;
-		}
-		
-		void setDtnasc(string dtnasc)
-		{
-			this->dtnasc = dtnasc;
-		}
-		
-		string dtnasc()
-		{
-			return this->dtnasc;
-		}
-		
-		string getEmail()
-		{
-			return this->email;
-		}
-		
-		string getNome()
-		{
-			return this->nome;
-		}
-
-		string getTelefone()
-		{
-			return this->telefone;
-		}
-		
-		string idade()
-        {
-		    
-			int anot =2021;
-			
-          anot=anot-to_int(dtnasc[7]);
-		
-			return d1; 
-		}
-		
-		string getContato()
-        {
- 	        return "Email: "+this->email+" Nome: "+this->nome+" Telefone: " + this->telefone+"Idade: "+idade();
-        }
-};
     
 class Data
 {
@@ -165,6 +86,75 @@ class Data
         
 };
 
+class contato : Data{
+	private:
+	    string email;
+	    string nome;
+	    string telefone;
+	    int dia;
+		int mes;
+		int ano;
+    
+   public:
+		contato(string email,string nome,string telefone)
+		{
+			this->email = email;
+			this->nome = nome;
+			this->telefone = telefone;			
+		}
+	 
+	    contato()
+	    {
+			this->email = "";
+			this->nome = "";
+			this->telefone = "";			
+		}
+		
+		void setEmail(string email)
+		{
+			this->email = email;
+		}
+		
+		void setNome(string nome)
+		{
+			this->nome = nome;
+		}
+
+		void setTelefone(string telefone)
+		{
+			this->telefone = telefone;
+		}
+		
+		string getEmail()
+		{
+			return this->email;
+		}
+		
+		string getNome()
+		{
+			return this->nome;
+		}
+
+		string getTelefone()
+		{
+			return this->telefone;
+		}
+		
+		string idade()
+        {
+		    
+			int anot =2021;			
+        return(	anot - atoi(getAno()) );
+		
+			return d1; 
+		}
+		
+		string getContato()
+        {
+ 	        return "Email: "+this->email+" Nome: "+this->nome+" Telefone: " + this->telefone+"Idade: "+idade();
+        }
+};
+
 int main(int argc, char** argv)
 {
 	string email,nome,telefone;
@@ -194,8 +184,10 @@ int main(int argc, char** argv)
 		cin>>email;
 		cin>>nome;
 		cin>>telefone;
-		cin>>dtnasc;
-		contato *mostra = new contato(email,nome,telefone,dtnasc);
+		cin>>dia;
+		cin>>mes;
+		cin>>ano;
+		contato *mostra = new contato(email,nome,telefone,dia,mes,ano);
 		cout<<mostra->getContato()<<endl; 
 		
 		
