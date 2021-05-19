@@ -1,4 +1,6 @@
 #include <iostream>
+#include <string.h>
+#include <stdlib.h>
 using namespace std;
     
 class Data
@@ -96,7 +98,7 @@ class contato : Data{
 		int ano;
     
    public:
-		contato(string email,string nome,string telefone)
+		contato(int dia,int mes,int ano,string email,string nome,string telefone)
 		{
 			this->email = email;
 			this->nome = nome;
@@ -142,11 +144,10 @@ class contato : Data{
 		
 		string idade()
         {
-		    
-			int anot =2021;			
-        return(	anot - atoi(getAno()) );
-		
-			return d1; 
+		    int anot;
+			anot = 2021 ;			
+        return	(to_string(anot- getAno())) ;
+ 
 		}
 		
 		string getContato()
@@ -158,7 +159,7 @@ class contato : Data{
 int main(int argc, char** argv)
 {
 	string email,nome,telefone;
-	data dtnasc;
+	int dia,mes,ano;
 	
 	Data *hoje = new Data(4, 5, 2021);
 	cout << hoje->getData() << endl;
@@ -187,8 +188,9 @@ int main(int argc, char** argv)
 		cin>>dia;
 		cin>>mes;
 		cin>>ano;
-		contato *mostra = new contato(email,nome,telefone,dia,mes,ano);
-		cout<<mostra->getContato()<<endl; 
+		contato *mostra[5];
+		mostra[i] = new contato(dia,mes,ano,email,nome,telefone);
+		cout<<mostra[i]->getContato()<<endl; 
 		
 		
 	}
