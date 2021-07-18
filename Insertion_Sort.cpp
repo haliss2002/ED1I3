@@ -15,13 +15,16 @@ void Insertion_Sort(int t, int *a) {
 	while (j=t-1)
     {
      cout << "[" << j << "]: " << a[j] << ", [" << j+1 << "]: " << a[j+1];
-			if (a[j] > a[j-1]) {
+			if (a[j] > a[j-1] && j>0) {
 				aux = a[j];
 				a[j] = a[j-1];
 				a[j-1] = aux;
 				cout << " - trocou!";
                 --j;
 			}
+            else{
+                --j;
+            }
 			cout << endl;
     }
 }
